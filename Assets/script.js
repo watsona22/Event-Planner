@@ -1,14 +1,49 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-var saveBtn = $('btn saveBtn');
+var saveBtn = document.querySelectorAll('btn saveBtn');
+var date = dayjs('#currentDay');
+var reformat = dayjs().format('dddd, MMMM D YYYY');
+console.log(reformat);
+var past = document.querySelector("#hour-9");
+var present = document.querySelector("#hour-10");
+var future = document.querySelector("#hour-11");
+var hidden = document.querySelectorAll('fas fa-save');
+var currentTime = document.querySelectorAll('time block past present future');
+
+
 $(function (e) {
     e.target =
-        saveBtn.on('click', function () {
+        date = setInterval(function () {
+            $('#currentDay').text(reformat);
+        }, 1000);
+
+
+    saveBtn = ('click', function (event) {
+        if (event.target.buttonDelete === 'click') {
+            console.log("test")
+        }
+        buttonDelete.addEventListener("click", (event) => {
 
         }
 
         )
+
+
+
+
+
+
+
+    });
+
+    //set each button to have a data attribute.
+    //on a click it deletes the item in the list.
+
+    // function displayTime() {
+    //     var rightNow = now.format('dddd, MMMM D YYYY, h:mm:ss a');
+    //     timeDisplayEl.text(rightNow);
+    // }
     // TODO: Add a listener for click events on the save button. This code should
     // use the id in the containing time-block as a key to save the user input in
     // local storage. HINT: What does `this` reference in the click listener
