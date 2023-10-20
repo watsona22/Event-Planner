@@ -3,17 +3,12 @@
 // in the html.
 var saveBtn = document.querySelectorAll('btn saveBtn col-2 col-md-1');
 var date = dayjs('#currentDay');
-var present = document.getElementById('present');
-var past = document.getElementById('past');
-var future = document.getElementById('future');
-
 var reformat = dayjs().format('dddd, MMMM D YYYY');
 var time = dayjs().format('h');
 console.log(time);
 var calendarTime = (["#9", "#10", "#11", "#12", "#1", "#2", "#3", "#4", "#5"]);
-var textArea = document.querySelectorAll("#textArea");
-// var futureTime = daysjs(time).toNow();
-// var pastTime = daysjs(reformat).isBefore(time);
+var textArea = $("#textArea");
+var color = $('row time-block');
 // var hidden = document.querySelectorAll('fas fa-save');
 
 
@@ -25,35 +20,43 @@ $(function saveEvents(events) {
 
     currentTime = (function () {
         if (calendarTime == time) {
-            document.getElementById('#textArea').style.present;
-        } else if (calendarTime == pastTime) {
-            document.getElementById('#textArea').style.past;
+            color.addClass('present');
+        } else if (calendarTime > time) {
+            color.addClass('future');
         } else {
-            document.getElementById('#textArea').style.future;
+            // textArea.css('background-color', 'd3d3d3');
+            color.addClass('past');
         }
 
     })
 
 
-    function saveEvents(event) {
+    function enterEvents(event) {
         var saveBtn = $(event.target);
+        var lead = $('lead');
         saveBtn.getItem('#textArea').append(userInput);
+        var eventList = $('input[name="#textArea"]').val();
+        var eventListItemEl = $('<textarea class="col-8 col-md-10 description">');
+        eventListItemEl.text(eventList);
+        eventList.append(lead);
+        $('input[name="#textArea"]').val('');
 
         if (event.target.saveBtn === 'click') {
             textArea = JSON.parse(localStorage.getItem("#textArea")) || []
-            var userInput = document.createElement("h2");
+
             userInput.textContent = textArea.value;
 
             localStorage.setItem("#textArea", JSON.stringify(textArea));
 
         }
 
-        for (var i = 0; i < textArea.length; i++) {
-            textArea.push({ userInput: textArea.value })
+        // for (var i = 0; i < textArea.length; i++) {
+        //     textArea.push({ userInput: textArea.value })
 
-        }
+        // }
+        eventList.on('click', '.btn saveBtn col-2 col-md-1', enterEvents);
     }
-    saveBtn.on('click', '.btn saveBtn col-2 col-md-1', saveEvents);
+
 });
 
 
