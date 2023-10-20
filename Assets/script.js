@@ -1,7 +1,7 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-var saveBtn = document.querySelectorAll('btn saveBtn');
+var saveBtn = document.querySelectorAll('btn saveBtn col-2 col-md-1');
 var date = dayjs('#currentDay');
 var present = document.getElementById('present');
 var past = document.getElementById('past');
@@ -12,67 +12,55 @@ var time = dayjs().format('h');
 console.log(time);
 var calendarTime = (["#9", "#10", "#11", "#12", "#1", "#2", "#3", "#4", "#5"]);
 var textArea = document.querySelectorAll("#textArea");
-
-// var color = document.querySelectorAll('row time-block present past future');
-
 // var futureTime = daysjs(time).toNow();
 // var pastTime = daysjs(reformat).isBefore(time);
-
-
 // var hidden = document.querySelectorAll('fas fa-save');
 
 
-$(function (e) {
-    e.target =
+$(function saveEvents(events) {
+    events.target =
         date = setInterval(function () {
             $('#currentDay').text(reformat);
         }, 1000);
 
     currentTime = (function () {
         if (calendarTime == time) {
-            style.textArea = present;
-            console.log("text working");
+            document.getElementById('#textArea').style.present;
         } else if (calendarTime == pastTime) {
-            style.textArea = past;
+            document.getElementById('#textArea').style.past;
         } else {
-            style.textArea = future;
+            document.getElementById('#textArea').style.future;
         }
 
     })
 
 
-    saveBtn.addEventListener("click", function (event) {
-        if (event.target.buttonDelete === 'click') {
-        }
-        buttonDelete.addEventListener("click", (event) => {
+    function saveEvents(event) {
+        var saveBtn = $(event.target);
+        saveBtn.getItem('#textArea').append(userInput);
+
+        if (event.target.saveBtn === 'click') {
             textArea = JSON.parse(localStorage.getItem("#textArea")) || []
             var userInput = document.createElement("h2");
             userInput.textContent = textArea.value;
 
             localStorage.setItem("#textArea", JSON.stringify(textArea));
 
-            for (var i = 0; i < textArea.length; i++) {
-                textArea.push({ userInput: textArea.value })
+        }
 
-            }
-        })
-    })
+        for (var i = 0; i < textArea.length; i++) {
+            textArea.push({ userInput: textArea.value })
 
+        }
+    }
+    saveBtn.on('click', '.btn saveBtn col-2 col-md-1', saveEvents);
 });
-
-
-
 
 
 
 
 //set each button to have a data attribute.
 //on a click it deletes the item in the list.
-
-// function displayTime() {
-//     var rightNow = now.format('dddd, MMMM D YYYY, h:mm:ss a');
-//     timeDisplayEl.text(rightNow);
-// }
 // TODO: Add a listener for click events on the save button. This code should
 // use the id in the containing time-block as a key to save the user input in
 // local storage. HINT: What does `this` reference in the click listener
