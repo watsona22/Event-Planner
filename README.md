@@ -27,7 +27,7 @@ I learned how to navigate the DOM using jquery to create dynamic pages. Utilizin
 ## Usage
 
 The html, css, and js files can be used to understand the dynamic code that supports the application. A link to the mockup is listed below, for your convenience. 
-![Event Planner Mockup](Assets/Event-planner-mockup.png)
+![Event Planner Mockup](./Assets/Event-planner-mockup.png)
 
 
 ## Credits
