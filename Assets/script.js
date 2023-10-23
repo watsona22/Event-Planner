@@ -6,58 +6,74 @@ var date = dayjs('#currentDay');
 var reformat = dayjs().format('dddd, MMMM D YYYY');
 var time = dayjs().format('h');
 console.log(time);
-var calendarTime = (["#9", "#10", "#11", "#12", "#1", "#2", "#3", "#4", "#5"]);
+var calendarTime = $(["9", "10", "11", "12", "1", "2", "3", "4", "5"]);
 var textArea = $("#textArea");
-var color = $('row time-block');
+var color = $('.row time-block');
 // var hidden = document.querySelectorAll('fas fa-save');
 
+$(document).ready(function () {
+    // $(function (events) {
 
-$(function saveEvents(events) {
-    events.target =
-        date = setInterval(function () {
-            $('#currentDay').text(reformat);
-        }, 1000);
+    date = setInterval(function () {
+        $('#currentDay').text(reformat);
+    }, 1000);
 
-    currentTime = (function () {
-        if (calendarTime == time) {
-            color.addClass('present');
-        } else if (calendarTime > time) {
-            color.addClass('future');
+    currentTime = function () {
+        $('.row time-block').each(function () {
+
+        }
+        )
+    }
+    console.log('calendarTime:' + JSON.stringify(calendarTime));
+    console.log('time:' + time)
+    for (var i = 0; i < JSON.stringify(calendarTime); i++) {
+        var id = $(this).attr("#id");
+        var splitId = id.split('-');
+        // textArea.push({ userInput: textArea.value })
+        if (splitId == calendarTime) {
+            color.addClass('.present');
+        } else if (splitId > calendarTime) {
+            color.addClass('.future');
         } else {
             // textArea.css('background-color', 'd3d3d3');
-            color.addClass('past');
+            color.addClass('.past');
+            document();
         }
 
-    })
-
-
-    function enterEvents(event) {
-        var saveBtn = $(event.target);
-        var lead = $('lead');
-        saveBtn.getItem('#textArea').append(userInput);
-        var eventList = $('input[name="#textArea"]').val();
-        var eventListItemEl = $('<textarea class="col-8 col-md-10 description">');
-        eventListItemEl.text(eventList);
-        eventList.append(lead);
-        $('input[name="#textArea"]').val('');
-
-        if (event.target.saveBtn === 'click') {
-            textArea = JSON.parse(localStorage.getItem("#textArea")) || []
-
-            userInput.textContent = textArea.value;
-
-            localStorage.setItem("#textArea", JSON.stringify(textArea));
-
-        }
-
-        // for (var i = 0; i < textArea.length; i++) {
-        //     textArea.push({ userInput: textArea.value })
-
-        // }
-        eventList.on('click', '.btn saveBtn col-2 col-md-1', enterEvents);
     }
 
+    currentTime();
 });
+
+
+function enterEvents(event) {
+    var saveBtn = $(event.target);
+    var storage = $('.storage');
+    var eventList = $('#textArea').val();
+    var eventListItemEl = $('col-8 col-md-10 description');
+    saveBtn.getItem(eventList).append(storage);
+    eventListItemEl.text(eventList);
+    // eventList.append(storage);
+    $('#textArea').val('');
+
+    if (event.target.saveBtn === 'click') {
+        textArea = JSON.parse(localStorage.getItem("#textArea")) || []
+
+        userInput.textContent = textArea.value;
+
+        localStorage.setItem("#textArea", JSON.stringify(textArea));
+
+    }
+
+    for (var i = 0; i < textArea.length; i++) {
+        textArea.push({ userInput: textArea.value })
+
+    }
+    eventList.on('click', '.btn saveBtn col-2 col-md-1', enterEvents)
+}
+
+
+
 
 
 
