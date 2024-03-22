@@ -7,7 +7,7 @@ Users should see the current date at the top of the planner and depending on the
 
 The acceptance criteria were as follows:
 
-# Acceptance Criteria
+## Acceptance Criteria
 ```md
 GIVEN I am taking a code quiz
 GIVEN I am using a daily planner to create a schedule
