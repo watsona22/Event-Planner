@@ -1,7 +1,7 @@
 # Event-Planner
 ## Description
 
-The associated web application is an interactive calendar built with dynamic HTML, CSS, and JQuery. 
+This application is an interactive calendar built with dynamic HTML, CSS, and JQuery. 
 
 Users should see the current date at the top of the planner and depending on the time of day, see areas designated (by color) for the present, past, and future time. Each text area can be used to enter an event and then the entry will be saved to local storage for future access. 
 
