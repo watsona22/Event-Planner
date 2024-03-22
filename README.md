@@ -5,8 +5,10 @@ The associated web application is an interactive calendar built with dynamic HTM
 
 Users should see the current date at the top of the planner and depending on the time of day, see areas designated (by color) for the present, past, and future time. Each text area can be used to enter an event and then the entry will be saved to local storage for future access. 
 
-```
-The acceptance criteria were as follows: 
+The acceptance criteria were as follows:
+
+#Acceptance Criteria
+```md
 GIVEN I am taking a code quiz
 GIVEN I am using a daily planner to create a schedule
 WHEN I open the planner
@@ -31,10 +33,6 @@ I learned how to navigate the DOM using jquery to create dynamic pages. Utilizin
 The html, css, and js files can be used to understand the dynamic code that supports the application. A link to the mockup is listed below, for your convenience. 
 ![Event Planner Mockup](./Assets/Event-planner-mockup.png)
 https://watsona22.github.io/Event-Planner/
-
-## Credits
-
-The project was completed with help from the course materials and assistance from Bootcamp tutor, Erik Hirsch and AskBSC support - Zack.
 
 ## License
 
