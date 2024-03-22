@@ -1,10 +1,11 @@
 # Event-Planner
 ## Description
 
-The purpose of this challenge was to deploy a web application and event plannr with interactive components. The project demonstrated dynamic HTML and CSS code, using JQuery. 
+The associated web application is an interactive calendar built with dynamic HTML, CSS, and JQuery. 
 
 Users should see the current date at the top of the planner and depending on the time of day, see areas designated (by color) for the present, past, and future time. Each text area can be used to enter an event and then the entry will be saved to local storage for future access. 
 
+```
 The acceptance criteria were as follows: 
 GIVEN I am taking a code quiz
 GIVEN I am using a daily planner to create a schedule
@@ -20,6 +21,7 @@ WHEN I click the save button for that timeblock
 THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
+```
 
 All of the acceptance criteria were met and the site functions as expected.
 
